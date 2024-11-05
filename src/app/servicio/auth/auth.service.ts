@@ -37,7 +37,6 @@ export class AuthService {
       this.$cargando.next(false);
       console.log(resultado);
       this.router.navigate(['/','productos'])
-      
     });
   }
   
@@ -45,6 +44,7 @@ export class AuthService {
     if(this.usuarioLogueado){
       this.usuarioLogueado = null;
       this.accessToken = null;
+      this.router.navigate([''])
     }
   }
 }

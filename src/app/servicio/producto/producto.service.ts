@@ -39,7 +39,7 @@ export class ProductoService {
 
   public siguientesProductos(){
     this.saltar = this.saltar + this.cantidad;
-    const url_nueva = `${this.URL_PRODUCTOS}?limit=${this.cantidad}&skip=0`;
+    const url_nueva = `${this.URL_PRODUCTOS}?limit=${this.cantidad}&skip=${this.saltar}`;
     this.http.get<RespuestaProducto>(url_nueva,{
       headers: {
         'Authorization': 'Bearer '+ this.auth.accessToken,
@@ -47,7 +47,7 @@ export class ProductoService {
       } 
     })
     .subscribe(datos =>{
-      this.$productos.next(datos.products);
+      this.$productos.next([...this.$productos.getValue(), ...datos.products]);
       this.total = datos.total;
     });
   }

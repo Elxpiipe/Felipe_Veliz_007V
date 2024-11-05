@@ -4,9 +4,9 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-col size="12">
+      <ion-col size="12" size-md="8" size-lg="6">
         <ion-card>
-          <img src="../../assets/icon/icono.png" alt="" >
+          <img src="../../assets/icon/icono.png" alt="" class="img-responsive">
           <ion-card-header>
             <ion-card-title  class="ion-text-center">
               Bienvenido
@@ -16,7 +16,7 @@
             <form [formGroup]="formulario" (submit)="validarFormulario()">
               <ion-grid>
                 <ion-row>
-                  <ion-col>
+                  <ion-col size="12">
                     <ion-input
                     formControlName ="usuario"
                     label="Usuario"
@@ -26,7 +26,7 @@
                   </ion-col>
                 </ion-row>
                 <ion-row>
-                  <ion-col>
+                  <ion-col size="12">
                     <ion-input
                     formControlName ="contrasenia"
                     label="Contraseña"
@@ -36,8 +36,8 @@
                   </ion-col>
                 </ion-row>
                 <ion-row>
-                  <ion-col>
-                      <ion-toggle labelPlacement="start">
+                  <ion-col size="12">
+                      <ion-toggle style="display: contents;">
                         <ion-label> Recuérdame </ion-label>
                       </ion-toggle>
                   </ion-col>

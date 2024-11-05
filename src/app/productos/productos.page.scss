@@ -1,0 +1,15 @@
+.product-avatar img {
+    width: 100%;
+    height: auto;
+  }
+  
+  ion-label h2 {
+    font-size: 1.2rem;
+  }
+  
+  @media (max-width: 576px) {
+    ion-label h2 {
+      font-size: 1rem;
+    }
+  }
+  

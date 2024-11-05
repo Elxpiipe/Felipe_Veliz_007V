@@ -3,6 +3,8 @@ import { Producto } from '../interfaces/Producto';
 import { ProductoService } from '../servicio/producto/producto.service';
 import { ViewWillEnter,ViewDidLeave } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../servicio/auth/auth.service';
+
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.page.html',
@@ -12,7 +14,8 @@ export class ProductosPage implements ViewWillEnter,ViewDidLeave {
   public productos: Producto[] = [];
   private subProducto!: Subscription;
   constructor(
-    private prdS: ProductoService
+    private prdS: ProductoService,
+    private authS: AuthService
   ) { }
 
   public ionViewDidLeave(): void {
@@ -33,5 +36,16 @@ export class ProductosPage implements ViewWillEnter,ViewDidLeave {
 
   public anterior(){
     this.prdS.productosAnterior();
+  }
+
+  public salirSesion(){
+    this.authS.cerrarSesion();
+  }
+  
+  public cargarSiguientes(event: any) {
+    this.prdS.siguientesProductos();
+    setTimeout(() => {
+      event.target.complete();
+    }, 500);
   }
 }
