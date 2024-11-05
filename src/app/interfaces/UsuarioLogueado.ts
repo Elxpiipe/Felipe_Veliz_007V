@@ -4,6 +4,6 @@ export interface UsuarioLogueado  {
     email: string;
     firstName: string;
     lastName: string;
-    gender: string;
+    gender: "male" | "female";
     accessToken: string;
 }
