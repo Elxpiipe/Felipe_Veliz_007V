@@ -1,13 +1,31 @@
 <ion-header [translucent]="true">
+  <ion-title class="ion-text-center">Catálogo</ion-title>
   <ion-toolbar>
-    <ion-title>productos</ion-title>
+    
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Salir</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">productos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list *ngIf="productos">
+            <ion-item *ngFor="let producto of productos">
+              <ion-avatar aria-hidden="true" slot="start">
+                <img alt="" [src]="producto.thumbnail" />
+              </ion-avatar>
+              <ion-label>
+                <h2>{{ producto.title }}</h2>
+                <p>$ {{ producto.price }}</p>
+                <p>{{ producto.discountPercentage }} %</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>

@@ -52,7 +52,7 @@ export class ProductoService {
     });
   }
 
-  public productoAnterior(){
+  public productosAnterior(){
     const resta = this.saltar - this.cantidad;
     if(resta < 0){
       this.saltar = 0;
