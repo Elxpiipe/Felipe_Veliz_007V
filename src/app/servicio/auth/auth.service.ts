@@ -31,12 +31,20 @@ export class AuthService {
         'Content-Type': 'application/json'
       }
     })
-    .subscribe(resultado=>{
-      this.usuarioLogueado = resultado;
-      this.accessToken = resultado.accessToken;
-      this.$cargando.next(false);
-      console.log(resultado);
-      this.router.navigate(['/','productos'])
+    .subscribe({
+      next: (resultado) => {
+        this.usuarioLogueado = resultado;
+        this.accessToken = resultado.accessToken;
+        this.$cargando.next(false);
+        console.log(resultado);
+        this.router.navigate(['/productos']);
+      },
+      error: (err) => {
+        this.$cargando.next(false);
+        console.error("Error al iniciar sesión:", err);
+        // Muestra un mensaje de error
+        alert("Usuario o contraseña incorrectos. Por favor, intenta de nuevo.");
+      }
     });
   }
   
